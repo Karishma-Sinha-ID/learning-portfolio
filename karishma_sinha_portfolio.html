@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Karishma Sinha — L&D Leader & Instructional Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #15294d;
+    --navy-deep: #0c1a33;
+    --gold: #c17f2e;
+    --gold-soft: #faf1e3;
+    --paper: #fbfaf7;
+    --ink: #1c1c1a;
+    --ink-soft: #565650;
+    --line: #e2e0d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: 'Manrope', sans-serif;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 3rem; }
+  .full { width: 100%; }
+
+  /* NAV */
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; background: rgba(251,250,247,0.95);
+    backdrop-filter: blur(8px); z-index: 50;
+  }
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto; padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-name { font-size: 1.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 600; color: var(--ink-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO + ABOUT COMBINED */
+  .hero {
+    padding: 4rem 0 0;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+    font-weight: 800; line-height: 1.12;
+    margin-bottom: 1.6rem; letter-spacing: -0.015em;
+    color: var(--navy); max-width: 900px;
+  }
+  .hero-body-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem;
+    align-items: start; margin-bottom: 3rem;
+  }
+  .hero p {
+    font-size: 1.08rem; font-weight: 400; color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .hero p + p { margin-top: 1.1rem; }
+  .hero p strong { color: var(--navy); font-weight: 700; }
+
+  .credentials-box {
+    background: var(--navy); border-radius: 10px; padding: 1.8rem;
+  }
+  .credentials-box h4 {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.1rem;
+  }
+  .cred-row { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); margin-top: 0.4rem; flex-shrink: 0; }
+  .cred-name { font-size: 0.92rem; font-weight: 600; color: #fff; line-height: 1.35; }
+  .cred-meta { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.15rem; }
+
+  /* STAT BAR — full width */
+  .stat-bar {
+    background: var(--navy-deep);
+    padding: 3rem 0;
+    margin-top: 1rem;
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  }
+  .stat-item { border-left: 3px solid var(--gold); padding-left: 1.3rem; }
+  .stat-num {
+    font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1;
+    margin-bottom: 0.4rem; letter-spacing: -0.01em;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.4; font-weight: 500; }
+
+  hr.div { border: none; border-top: 1px solid var(--line); }
+
+  /* SECTION GENERIC */
+  section { padding: 4.5rem 0; }
+  .section-eyebrow {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-size: 1.85rem; font-weight: 800;
+    margin-bottom: 1rem; letter-spacing: -0.01em; color: var(--navy);
+  }
+  .section-intro {
+    color: var(--ink-soft); max-width: 100%; margin-bottom: 3rem;
+    font-size: 1.05rem; line-height: 1.75;
+  }
+
+  /* MODULE CARDS — PROJECTS */
+  .module-list { display: flex; flex-direction: column; gap: 1.8rem; }
+  .module-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 2.2rem; position: relative; overflow: hidden;
+  }
+  .module-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%;
+    background: var(--gold);
+  }
+  .module-tag {
+    display: inline-block; font-size: 0.74rem; font-weight: 700;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--navy); background: var(--gold-soft);
+    padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 1rem;
+  }
+  .module-title {
+    font-size: 1.45rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 1.4rem; letter-spacing: -0.005em;
+  }
+  .module-row {
+    display: grid; grid-template-columns: 140px 1fr; gap: 1rem;
+    padding: 0.7rem 0; border-bottom: 1px solid var(--line);
+  }
+  .module-row:last-of-type { border-bottom: none; }
+  .module-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft); padding-top: 0.15rem;
+  }
+  .module-text {
+    font-size: 1rem; color: var(--ink); line-height: 1.7;
+  }
+  .module-result {
+    margin-top: 1rem; background: var(--gold-soft); border-radius: 8px;
+    padding: 1.2rem 1.4rem; display: grid; grid-template-columns: 140px 1fr; gap: 1rem;
+  }
+  .module-result .module-label { color: var(--gold); }
+  .module-result .module-text { font-weight: 600; color: var(--navy); }
+  .module-note {
+    margin-top: 1rem; font-size: 0.9rem; color: var(--ink-soft); font-style: italic;
+  }
+
+  /* SAMPLE / SERVICE GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem; }
+  .panel {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 1.8rem; transition: border-color 0.2s, transform 0.2s;
+  }
+  .panel:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .panel-icon {
+    width: 38px; height: 38px; border-radius: 6px; background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; font-weight: 800; color: var(--gold); margin-bottom: 1rem;
+    font-family: 'Manrope', sans-serif;
+  }
+  .panel h4 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+  .panel p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; }
+
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 1.2rem; font-size: 0.88rem; font-weight: 700;
+    color: #fff; background: var(--navy);
+    padding: 0.65rem 1.4rem; border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold); }
+
+  /* AI PRACTICE */
+  .ai-section { background: var(--navy); }
+  .ai-section .section-eyebrow { color: var(--gold); }
+  .ai-section .section-title { color: #fff; }
+  .ai-philosophy {
+    font-size: 1.3rem; font-weight: 600; color: #fff; line-height: 1.55;
+    border-left: 4px solid var(--gold); padding-left: 1.6rem;
+    margin-bottom: 2.5rem; max-width: 850px;
+  }
+  .ai-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+  .ai-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 1.5rem; transition: border-color 0.2s;
+  }
+  .ai-card:hover { border-color: var(--gold); }
+  .ai-card-num { font-size: 0.78rem; font-weight: 800; color: var(--gold); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+  .ai-card p { font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .testimonial-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 1.8rem; position: relative;
+  }
+  .testimonial-card::before {
+    content: '"'; font-family: 'Manrope', sans-serif; font-size: 3.5rem; font-weight: 800;
+    color: var(--gold-soft); position: absolute; top: 0.5rem; left: 1.2rem; line-height: 1;
+  }
+  .testimonial-quote {
+    font-size: 0.98rem; color: var(--ink); line-height: 1.7; margin-bottom: 1.1rem;
+    position: relative; z-index: 1; padding-top: 1.3rem;
+  }
+  .testimonial-source { font-size: 0.82rem; color: var(--ink-soft); font-weight: 600; }
+  .testimonial-note { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+
+  /* CONTACT */
+  .contact-band {
+    background: var(--navy); border-radius: 16px; padding: 3.5rem;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center;
+  }
+  .contact-band h2 { color: #fff; font-size: 1.85rem; font-weight: 800; margin-bottom: 1rem; }
+  .contact-band p { color: rgba(255,255,255,0.75); font-size: 1.02rem; line-height: 1.75; }
+  .contact-actions { display: flex; flex-direction: column; gap: 0.9rem; }
+  .contact-pill {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 0.95rem; font-weight: 600; color: #fff;
+    transition: background 0.2s;
+  }
+  .contact-pill:hover { background: var(--gold); border-color: var(--gold); }
+  .contact-pill.primary { background: var(--gold); border-color: var(--gold); }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 2.2rem 0;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.85rem; color: var(--ink-soft);
+  }
+  .footer-inner strong { color: var(--navy); }
+
+  @media (max-width: 900px) {
+    .hero-body-grid, .grid-2, .grid-4, .ai-grid, .testimonial-grid, .contact-band { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .module-row, .module-result { grid-template-columns: 1fr; }
+    .contact-band { padding: 2.2rem; border-radius: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-name">Karishma Sinha</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects & Results</a></li>
+      <li><a href="#samples">Design Samples</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#ai">AI Practice</a></li>
+      <li><a href="#endorsements">Professional Endorsements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO + ABOUT MERGED -->
+<section class="hero" id="about">
+  <div class="wrap">
+    <p class="hero-eyebrow">About · L&D Leader · Instructional Design · Hyderabad, India</p>
+    <h1>Learning strategy, built with intention.<br>Delivered at enterprise scale.</h1>
+    <div class="hero-body-grid">
+      <div>
+        <p>For 15+ years, I've led learning strategy and instructional design across global, regulated, and fast-moving environments — including financial services, telecommunications, and enterprise consulting. I build <strong>capability frameworks, leadership programs, and compliance training</strong> that turn complex business problems into learning people actually use.</p>
+        <p>What sets me apart: I pair deep enterprise experience with a hands-on, practitioner-level command of <strong>AI tools</strong> — so the programs I build are faster to develop, smarter to measure, and made to last.</p>
+      </div>
+      <div class="credentials-box">
+        <h4>Credentials</h4>
+        <div class="cred-row">
+          <div class="cred-dot"></div>
+          <div><div class="cred-name">Google AI Professional Certificate</div><div class="cred-meta">Certified, 2026</div></div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-dot"></div>
+          <div><div class="cred-name">Google AI Essentials Certificate</div><div class="cred-meta">Certified, 2026</div></div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-dot"></div>
+          <div><div class="cred-name">Lean Six Sigma Green Belt</div><div class="cred-meta">In Progress</div></div>
+        </div>
+        <div class="cred-row">
+          <div class="cred-dot"></div>
+          <div><div class="cred-name">Executive MBA</div><div class="cred-meta">Manipal Institute of Technology</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar full">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num">15<span>+</span></div>
+        <div class="stat-label">Years leading enterprise L&D and instructional design</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5<span>K+</span></div>
+        <div class="stat-label">Employees reached by a single compliance learning rollout</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">80<span>+</span></div>
+        <div class="stat-label">Learning assets delivered annually in a regulated environment</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">35-55<span>%</span></div>
+        <div class="stat-label">Rise in learning hub traffic within a month of one campaign's launch</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-eyebrow">Projects & Results</p>
+    <h2 class="section-title">Building capability. Building outcomes.</h2>
+
+    <div class="module-list">
+
+      <div class="module-card">
+        <span class="module-tag">A Global Telecommunications Company · Legal, Retail & Compliance</span>
+        <h3 class="module-title">Enterprise Compliance Learning Suite</h3>
+        <div class="module-row"><span class="module-label">Situation</span><span class="module-text">The organisation needed to roll out updated compliance learning across Legal, Retail, and Compliance functions, touching over 5,000 employees with varied roles, risk exposure, and regulatory obligations.</span></div>
+        <div class="module-row"><span class="module-label">Task</span><span class="module-text">Translate dense regulatory requirements into learning employees could absorb and apply, while meeting strict timelines and stakeholder sign-off requirements across three business functions.</span></div>
+        <div class="module-row"><span class="module-label">Action</span><span class="module-text">Led stakeholder consultations with Legal and Compliance leaders to scope content accurately, then designed scenario-based modules placing employees in realistic decision points rather than abstract policy summaries. Each course required an 80% assessment score to pass. Built a standardised delivery governance framework — intake, milestone tracking, review cycles — to keep the multi-function rollout on schedule.</span></div>
+        <div class="module-result"><span class="module-label">Result</span><span class="module-text">Reached full completion across the 5,000+ employee population under a compliance mandate. The governance model became the team's standard for future enterprise rollouts.</span></div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-tag">A Financial Services Organisation · Learning & Talent Marketing</span>
+        <h3 class="module-title">GROW — An Episodic Series to Drive Engagement with the Learning Library</h3>
+        <div class="module-row"><span class="module-label">Situation</span><span class="module-text">The organisation had a strong course catalogue in its learning hub, but awareness and voluntary engagement were low — people weren't browsing or discovering what was available.</span></div>
+        <div class="module-row"><span class="module-label">Task</span><span class="module-text">Design a marketing-style learning campaign that made the existing course library feel discoverable and genuinely worth exploring.</span></div>
+        <div class="module-row"><span class="module-label">Action</span><span class="module-text">Created GROW, a Netflix-style episodic series delivered through a dedicated microsite, built around serialised micro-episodes with narrative arcs and natural cliffhangers, each spotlighting specific courses from the library. Paired this with game-based simulation elements to keep the experience interactive rather than passive.</span></div>
+        <div class="module-result"><span class="module-label">Result</span><span class="module-text">35–55% increase in learning hub traffic within the first month (internally reported). Became a regular talking point in leadership meetings. Planned for annual refresh; I moved on from the organisation before that first cycle completed.</span></div>
+        <p class="module-note">A recreated sample of this project can be viewed in the Design Samples section of this portfolio.</p>
+      </div>
+
+      <div class="module-card">
+        <span class="module-tag">A Global Telecommunications Company · Frontline Leadership Development</span>
+        <h3 class="module-title">WOW — National Leadership Certification, Built for Reach Beyond the Room</h3>
+        <div class="module-row"><span class="module-label">Situation</span><span class="module-text">The organisation needed to certify a large population of frontline leaders nationally, but live instructor-led sessions alone couldn't reach everyone who needed the training.</span></div>
+        <div class="module-row"><span class="module-label">Task</span><span class="module-text">As one of two lead developers, build the core training materials and facilitator guides for live sessions, and separately solve the access gap for leaders who couldn't attend in person.</span></div>
+        <div class="module-row"><span class="module-label">Action</span><span class="module-text">Designed the training content, facilitator guides, and participant activities used in the nationally delivered certification sessions. Took recordings of those live sessions and rebuilt them into interactive, self-paced online courses — adding structured activities and checks for understanding.</span></div>
+        <div class="module-result"><span class="module-label">Result</span><span class="module-text">Extended full certification access to leaders the live-only model would have excluded, supporting a high completion rate across the national rollout without compromising training quality.</span></div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-tag">A Financial Services Organisation · HR Shared Services</span>
+        <h3 class="module-title">High-Volume Learning Operations in a Regulated Environment</h3>
+        <div class="module-row"><span class="module-label">Situation</span><span class="module-text">Within the organisation's HR Shared Services function, the team needed to deliver a high volume of learning and communication assets annually, in an environment where accuracy and audit-readiness were non-negotiable.</span></div>
+        <div class="module-row"><span class="module-label">Task</span><span class="module-text">Bring consistency, governance, and quality discipline to a high-throughput delivery environment without slowing the pace the business needed.</span></div>
+        <div class="module-row"><span class="module-label">Action</span><span class="module-text">Introduced standardised service timelines, structured review and sign-off protocols, and training records practices supporting compliance reporting. Provided project-based leadership to teams of 3–4 instructional designers per initiative, coordinating allocation and quality without a formal reporting line.</span></div>
+        <div class="module-result"><span class="module-label">Result</span><span class="module-text">Delivered 80+ learning and communication assets annually. Ranked a top performer for two consecutive years. The governance model became the standard for the wider team.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="div"/>
+
+  <!-- DESIGN SAMPLES -->
+  <section id="samples">
+    <p class="section-eyebrow">Design Samples</p>
+    <h2 class="section-title">Recreated work, built to show range</h2>
+    <p class="section-intro">Since real client and employer materials are confidential, I build original, recreated samples in my own time to demonstrate format, interactivity, and instructional craft. These are not client deliverables — they're independent demonstrations of how I design.</p>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-icon">01</div>
+        <h4>The GROW Series</h4>
+        <p>A recreated, Netflix-style episodic learning sample — demonstrating the visual style, narrative structure, and interactive elements used in the original course-discovery campaign.</p>
+        <a href="https://shanukarishma05.github.io/GROW-simulation/" class="btn-gold" target="_blank">View the GROW Sample ↗</a>
+      </div>
+      <div class="panel">
+        <div class="panel-icon">02</div>
+        <h4>Flight Ready: Safety First</h4>
+        <p>A game-based, simulation-style safety training module for airline crew — five-level progressive assessment with branching, scenario-driven decisions.</p>
+        <a href="https://shanukarishma05.github.io/eLearning-Portfolio/" class="btn-gold" target="_blank">Launch the Simulation ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="div"/>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-eyebrow">Services</p>
+    <h2 class="section-title">How I can help</h2>
+       <div class="grid-4">
+      <div class="panel">
+        <div class="panel-icon">01</div>
+        <h4>Instructional Design & eLearning</h4>
+        <p>Storyboarding, scripting, Storyline/Rise builds, scenario and game-based learning, assessments.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-icon">02</div>
+        <h4>L&D Strategy & Consulting</h4>
+        <p>Learning needs analysis, curriculum architecture, governance frameworks, capability academy design.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-icon">03</div>
+        <h4>AI-Augmented Content</h4>
+        <p>Prompt-driven content workflows, AI video production, practical AI adoption support.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-icon">04</div>
+        <h4>Innovative Learning Formats</h4>
+        <p>Episodic micro-learning, branching scenarios, game-based simulations.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- AI PRACTICE -->
+<section class="ai-section full" id="ai">
+  <div class="wrap">
+    <p class="section-eyebrow">AI Practice</p>
+    <h2 class="section-title">A practitioner's approach to AI in L&D</h2>
+    <p class="ai-philosophy">"I use AI as a thinking partner — it helps me work smarter. The thinking, the design decisions, and the quality judgement remain mine."</p>
+    <div class="ai-grid">
+      <div class="ai-card"><div class="ai-card-num">01 · TEMPLATES</div><p>Designed reusable prompt templates for course outlines, scenario scripts, assessment items, and facilitator guides — deployed in live enterprise programs, not just experiments.</p></div>
+      <div class="ai-card"><div class="ai-card-num">02 · PROMPTING TECHNIQUE</div><p>Applied chain-of-thought prompting and role-framing to improve AI output quality and reduce editing cycles, while keeping instructional integrity intact.</p></div>
+      <div class="ai-card"><div class="ai-card-num">03 · CUSTOM ASSISTANTS</div><p>Used Gemini Gems, NotebookLM, Synthesia, Claude, and ChatGPT to build custom AI assistants for specific L&D workflow tasks — separating what AI does well from what still needs human judgement.</p></div>
+      <div class="ai-card"><div class="ai-card-num">04 · WHAT'S NEXT</div><p>Currently exploring agentic prompt workflows and AI-driven personalisation of learning paths.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- ENDORSEMENTS -->
+  <section id="endorsements">
+    <p class="section-eyebrow">Professional Endorsements</p>
+    <h2 class="section-title">Recognition along the way</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Karishma's ability to translate complex business requirements into clear, engaging learning experiences is exceptional. Her governance frameworks became the standard our team still uses.</p>
+        <p class="testimonial-source">Senior Stakeholder, People Leadership — A Global Telecommunications Company</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">GROW was unlike anything we'd built before. Karishma brought a creative vision and the operational discipline to execute it at scale — a rare combination.</p>
+        <p class="testimonial-source">Program Sponsor — A Financial Services Organisation</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Consistently top-tier output, year after year. Karishma brings both the strategic lens and the hands-on craft that sets her apart in L&D.</p>
+        <p class="testimonial-source">Recognition Award Citation — HR Shared Services</p>
+      </div>
+    </div>
+    <p class="testimonial-note">Testimonials shown are representative of feedback received. Direct, attributed quotes available on request.</p>
+  </section>
+
+  <hr class="div"/>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-band">
+      <div>
+        <h2>Let's connect</h2>
+        <p>This is the kind of work I bring to the table — instructional design, AI-augmented learning, and capability builds that hold up at scale. If you're tackling something similar, or just want to think out loud about where L&D is headed, I'd love to connect.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:sinha05karishma@gmail.com" class="contact-pill primary">sinha05karishma@gmail.com</a>
+        <a href="https://linkedin.com/in/karishma-sinha-0b546922/" class="contact-pill">LinkedIn</a>
+        <span class="contact-pill">+91 9886417575</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span><strong>Karishma Sinha</strong> · Hyderabad, India</span>
+    <span>L&D Leader · Instructional Designer · AI-Augmented Practitioner</span>
+  </div>
+</footer>
+
+</body>
+</html>
